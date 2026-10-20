@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/bg_card"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Image, ingredient information and menu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Ingredient image -->
+        <ImageView
+            android:id="@+id/imgIngredient"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_input"
+            android:scaleType="centerCrop"
+            android:contentDescription="Ingredient picture" />
+
+        <!-- Ingredient information -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:maxLines="2" />
+
+            <TextView
+                android:id="@+id/txtExpiry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:maxLines="2" />
+
+            <!-- Expiry badge directly under expiry date -->
+            <TextView
+                android:id="@+id/txtExpiryStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="9dp"
+                android:paddingEnd="9dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Fresh"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:maxLines="2" />
+
+        </LinearLayout>
+
+        <!-- Three-dot menu: Edit and Delete -->
+        <TextView
+            android:id="@+id/btnIngredientMenu"
+            android:layout_width="32dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="3dp"
+            android:gravity="center"
+            android:text="⋮"
+            android:textColor="@color/text_secondary"
+            android:textSize="25sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Ingredient options"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</LinearLayout>
