@@ -53,19 +53,42 @@ public class RecipeDetailActivity extends AppCompatActivity {
         );
 
         // Select the recipe image using the existing drawable files.
+        // Select an image based on the recipe name.
         String name = recipeName.toLowerCase(Locale.ROOT);
 
         if (name.contains("omelette") || name.contains("omelet")) {
             imgRecipeDetail.setImageResource(R.drawable.recipe_omelette);
+
         } else if (name.contains("pasta") || name.contains("spaghetti")) {
             imgRecipeDetail.setImageResource(R.drawable.recipe_pasta);
-        } else if (name.contains("stir")) {
+
+        } else if (name.contains("stir fry") || name.contains("stir-fry")
+                || name.contains("chicken wrap")) {
             imgRecipeDetail.setImageResource(R.drawable.recipe_stirfry);
+
         } else if (name.contains("soup")) {
             imgRecipeDetail.setImageResource(R.drawable.recipe_soup);
-        } else if (name.contains("rice")) {
+
+        } else if (name.contains("rice") || name.contains("beans")) {
             imgRecipeDetail.setImageResource(R.drawable.recipe_rice);
+
+        } else if (name.contains("pancake")) {
+            imgRecipeDetail.setImageResource(R.drawable.recipe_pancakes);
+
+        } else if (name.contains("garlic bread")) {
+            imgRecipeDetail.setImageResource(R.drawable.recipe_garlic_bread);
+
+        } else if (name.contains("grilled cheese")) {
+            imgRecipeDetail.setImageResource(R.drawable.recipe_grilled_cheese);
+
+        } else if (name.contains("tuna sandwich")) {
+            imgRecipeDetail.setImageResource(R.drawable.recipe_tuna_sandwich);
+
+        } else if (name.contains("scrambled eggs")) {
+            imgRecipeDetail.setImageResource(R.drawable.recipe_scrambled_eggs);
+
         } else {
+            // Use a fallback only when no matching image is available.
             imgRecipeDetail.setImageResource(R.drawable.recipe_omelette);
         }
 
@@ -111,6 +134,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         return result.toString().trim();
     }
 
+
     private String formatInstructions(String instructions) {
         if (instructions == null || instructions.trim().isEmpty()) {
             return "Instructions are not available yet.";
@@ -118,53 +142,52 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         String cleaned = instructions.trim();
 
-        // Keep instructions that are already numbered on separate lines.
-        String[] existingLines = cleaned.split("\\n+");
-        boolean alreadyNumbered = existingLines.length > 1;
+        // Preserve instructions that are already numbered.
+        String[] lines = cleaned.split("\\n+");
+        boolean numbered = lines.length > 1;
 
-        if (alreadyNumbered) {
-            for (String line : existingLines) {
-                if (!line.trim().matches("^(\\d+[.)]|Step\\s+\\d+).*")) {
-                    alreadyNumbered = false;
+        if (numbered) {
+            for (String line : lines) {
+                if (!line.trim().matches(
+                        "^(\\d+[.)]|Step\\s+\\d+).*")) {
+                    numbered = false;
                     break;
                 }
             }
         }
 
-        if (alreadyNumbered) {
+        if (numbered) {
             return cleaned;
         }
 
-        // Split instructions separated by full stops into numbered steps.
+        // Split a single paragraph into separate preparation steps.
         String[] sentences = cleaned.split("(?<=[.!?])\\s+");
-        List<String> steps = new ArrayList<>();
+
+        StringBuilder result = new StringBuilder();
+        int stepNumber = 1;
 
         for (String sentence : sentences) {
             String step = sentence.trim();
 
-            if (!step.isEmpty()) {
-                steps.add(step);
+            if (step.isEmpty()) {
+                continue;
             }
-        }
 
-        if (steps.size() <= 1) {
-            return cleaned;
-        }
-
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < steps.size(); i++) {
-            result.append(i + 1)
-                    .append(".  ")
-                    .append(steps.get(i));
-
-            if (i < steps.size() - 1) {
+            if (result.length() > 0) {
                 result.append("\n\n");
             }
+
+            result.append("STEP ")
+                    .append(stepNumber++)
+                    .append("\n")
+                    .append(step);
         }
 
-        return result.toString();
+        return result.length() > 0
+                ? result.toString()
+                : cleaned;
     }
+
 
     private String capitalise(String value) {
         if (value == null || value.isEmpty()) {
