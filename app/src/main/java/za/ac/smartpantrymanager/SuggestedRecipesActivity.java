@@ -24,6 +24,8 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
     private TextView txtNoRecipes;
     private RecyclerView recyclerRecipes;
 
+    // Manages recipe suggestions by loading pantry items and recipes from the database, finding matching recipes, and displaying results
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
