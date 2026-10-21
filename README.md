@@ -105,10 +105,8 @@ Its goals are to:
 -   **Name:** Lufuno Nemugumoni 
 -   **Project:** Smart Pantry Manager
 -   **Programming language:** Java
--   **Repository:**
-    https://github.com/LufunoNemugumoni/SmartPantryManager
+-  **Repository:** https://github.com/LufunoNemugumoni/SmartPantryManager
 
 ## Academic Project
 
-Developed as part of the Mobile App Development 700 practical
-assignment.
+Mobile App Development 700 assignment.
