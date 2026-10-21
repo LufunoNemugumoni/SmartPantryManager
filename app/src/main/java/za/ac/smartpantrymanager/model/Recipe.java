@@ -1,2 +1,20 @@
 package za.ac.smartpantrymanager.model;
-public class Recipe { private final int id; private final String name,ingredients,quantities,instructions; public Recipe(int id,String name,String ingredients,String quantities,String instructions){this.id=id;this.name=name;this.ingredients=ingredients;this.quantities=quantities;this.instructions=instructions;} public int getId(){return id;} public String getName(){return name;} public String getIngredients(){return ingredients;} public String getQuantities(){return quantities;} public String getInstructions(){return instructions;} }
+// Represents a recipe and stores its ID, name, ingredients, required quantities, and preparation instructions.
+public class Recipe {
+    private final int id;
+    private final String name, ingredients, quantities, instructions;
+
+    public Recipe(int id, String name, String ingredients, String quantities, String instructions) {
+        this.id = id;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.quantities = quantities;
+        this.instructions = instructions;
+    }
+
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public String getIngredients() { return ingredients; }
+    public String getQuantities() { return quantities; }
+    public String getInstructions() { return instructions; }
+}
