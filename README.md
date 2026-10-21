@@ -34,9 +34,9 @@ The application aims to reduce food waste, simplify pantry management and encour
 
 ### User Interface
 
--   Navigate between pantry management, recipe suggestions, and
+-   Navigate between pantry management, recipe suggestions and
     settings.
--   View ingredient and recipe images, ingredient lists, and recipe
+-   View ingredient and recipe images, ingredient lists and recipe
     details.
 
 ## Technologies Used
@@ -55,7 +55,7 @@ The application aims to reduce food waste, simplify pantry management and encour
 ## Requirements
 
 - Android Studio.
--  A compatible Java Development Kit (JDK)
+-  A compatible Java Development Kit
 - An Android SDK compatible with the project.
 -An Android emulator or a physical Android device with USB debugging enabled.
 
