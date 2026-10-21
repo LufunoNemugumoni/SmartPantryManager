@@ -1,4 +1,4 @@
-# Smart Pantry Manager 🍃
+# Smart Pantry Manager 
 
 ## Project Overview
 
@@ -59,7 +59,6 @@ trips.
 
 ## Project Structure
 
-``` text
 SmartPantryManager/
 ├── app/
 │   └── src/main/
@@ -77,7 +76,7 @@ SmartPantryManager/
 ├── gradle.properties
 ├── .gitignore
 └── README.md
-```
+
 
 *Note: This is an example of the expected project structure. Actual
 resource and source filenames may differ.*
